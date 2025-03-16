@@ -1,0 +1,24 @@
+overwrite: true
+schema: 'http://0.0.0.0:4000/graphql'
+documents: "src/services/*.graphql" # Your GraphQL queries and mutations
+generates:
+  src/services/types.generated.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+    config:
+      maybeValue: T
+  src/services/hooks.generated.ts:
+#    preset: client
+#    presetConfig:
+#      typesPath: ./types.generated
+#      importTypesNamespace: SchemaTypes
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-rtk-query:
+          importBaseApiFrom: "src/services/baseApi"
+          exportHooks: true
+    config:
+      maybeValue: T
+      withHooks: true

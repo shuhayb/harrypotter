@@ -1,0 +1,6 @@
+sources:
+  - name: HpApi
+    handler:
+      openapi:
+        endpoint: http://hp-api.onrender.com/api
+        path: /characters
