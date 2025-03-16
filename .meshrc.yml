@@ -1,6 +1,11 @@
 sources:
   - name: HpApi
     handler:
-      openapi:
+      jsonSchema:
         endpoint: http://hp-api.onrender.com/api
-        path: /characters
+        operations:
+          - type: Query
+            field: characters
+            path: /characters
+            method: GET
+            responseSample: ./characters/sample.json
